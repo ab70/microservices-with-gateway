@@ -1,0 +1,21 @@
+{
+  "name": "user-service",
+  "module": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "bun --watch index.js"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "bcryptjs": "^2.4.3",
+    "hono": "^4.6.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.6.3"
+  }
+}
