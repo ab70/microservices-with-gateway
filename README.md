@@ -55,7 +55,39 @@ Performance testing was done using `wrk`, a modern HTTP benchmarking tool. The t
     Requests/sec:  94010.25
     Transfer/sec:     13.81MB
     ```
+3. A normal api hit to (Fiber)
+    ```bash
+    wrk -t6 -c200 -d30s http://localhost:5000/gates
+    ```
 
+    **Results**:
+    ```
+    Running 30s test @ http://localhost:5000/gates
+    6 threads and 200 connections
+    Thread Stats   Avg      Stdev     Max   +/- Stdev
+      Latency     0.98ms    1.22ms  17.55ms   87.02%
+      Req/Sec    44.52k     9.93k   79.72k    65.94%
+    7980360 requests in 30.10s, 1.00GB read
+    Requests/sec: 265141.61
+    Transfer/sec:     34.14MB
+    ```
+4. A normal api hit to (Hono)
+    ```bash
+    wrk -t6 -c200 -d30s http://localhost:5001/api/messages/sample
+    ```
+
+    **Results**:
+    ```
+   wrk -t6 -c200 -d30s http://localhost:5001/api/messages/sample
+    Running 30s test @ http://localhost:5001/api/messages/sample
+    6 threads and 200 connections
+    Thread Stats   Avg      Stdev     Max   +/- Stdev
+      Latency     2.41ms  463.93us  17.23ms   82.56%
+      Req/Sec    13.78k     0.98k   16.64k    70.33%
+      2467965 requests in 30.02s, 353.05MB read
+    Requests/sec:  82197.51
+    Transfer/sec:     11.76MB
+    ```
 ---
 
 ## Comparison

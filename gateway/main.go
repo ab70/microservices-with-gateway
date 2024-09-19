@@ -8,7 +8,7 @@ import (
 
 func main() {
 	app := fiber.New(fiber.Config{
-		Prefork: true,
+		// Prefork: true,
 	})
 	// Proxy requests for /api/messages to the Messages service (http://localhost:8082)
 	app.All("/api/messages/*", func(c *fiber.Ctx) error {
@@ -21,7 +21,8 @@ func main() {
 
 	
 	app.Get("/gates", func(c *fiber.Ctx) error {
-		return c.SendString("Hello, World!")
+		// return c.SendString("Hello, World!")
+		return c.JSON(fiber.Map{"message": "Hello, World!"})
 	})
 	// Start the API Gateway on port 8080
 	log.Fatal(app.Listen(":5000"))
